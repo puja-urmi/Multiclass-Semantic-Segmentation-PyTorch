@@ -1,0 +1,12 @@
+torch==2.0.1               # or latest stable version
+torchvision==0.15.2        # version matching with torch, or latest stable version
+numpy==1.24.0              # or latest compatible version
+matplotlib==3.8.1
+tqdm==4.68.0
+tensorboard==2.14.0        # for SummaryWriter
+Pillow==10.1.0             # required for image processing with PIL
+opencv-python==4.8.1.78    # required for cv2
+imageio==2.31.0            # for saving/loading image files
+nibabel==5.2.0             # for loading medical imaging files (.nii)
+
+# Note: Adjust versions if specific compatibility with your PyTorch version or CUDA setup is needed.
