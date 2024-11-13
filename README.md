@@ -41,7 +41,7 @@ This repository provides a deep learning approach for multiclass semantic segmen
 
 1. Download the KiTS19 dataset from the official source, https://github.com/neheller/kits19
 2. Place the dataset in the `data/` directory (or adjust paths in `slicer.ipynb` if necessary).
-3. Run `slicer.ipynb` to generate 2D images and masks.
+3. Run `slicer.ipynb` to generate 2D images and masks of given 210 cases.
 4. Seperate data into train_data, val_data and test_data. 
 
 ## Training the Model
