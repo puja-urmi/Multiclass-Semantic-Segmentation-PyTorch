@@ -69,10 +69,7 @@ Composite Precision (Kidney & Tumor): 87.8845
   
 - **Qualitative Results**: 
 
-![590](https://github.com/user-attachments/assets/42ffe1ce-04ff-440b-9015-a7645f5b57fc)
-![1582](https://github.com/user-attachments/assets/e0f6c149-1ba8-4874-a37d-7faddf91359a)
-
-
+![590](https://github.com/user-attachments/assets/c7061c33-d080-4530-936c-f4f783433799)
 
 
 
