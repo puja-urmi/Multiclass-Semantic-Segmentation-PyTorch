@@ -1,29 +1,30 @@
 # Multiclass Semantic Segmentation on KiTS19 with PyTorch
 
-This repository provides a deep learning approach for multiclass semantic segmentation on the **Kidney Tumor Segmentation 2019 (KiTS19)** dataset using PyTorch. The project slices 3D CT scans into 2D images, generating 3-channeled masks to classify kidney, tumor, and background regions.
+This repository offers a complete framework for multiclass semantic segmentation on the **Kidney Tumor Segmentation 2019 (KiTS19)** dataset using PyTorch. This project processes 3D CT scans into 2D slices, generating 3-channel masks to classify regions as background, kidney, or tumor.
 
 ## Project Structure
 
-- **slicer.ipynb**: Jupyter notebook for preprocessing the KiTS19 dataset. This notebook slices the 3D images into 2D slices and generates corresponding 3-channeled 2D masks, with each channel representing:
-  - **Background**: No kidney or tumor
-  - **Kidney**: Kidney tissue excluding the tumor
-  - **Tumor**: Malignant tumor regions within the kidney
+- **slicer.ipynb**: Preprocessing notebook that:
+  - Converts 3D CT scans into 2D slices.
+  - Generates 3-channel masks for each 2D slice with channels representing:
+    - **Background** (Channel 1): Regions without kidney or tumor.
+    - **Kidney** (Channel 2): Kidney tissue excluding any tumors.
+    - **Tumor** (Channel 3): Malignant tumor regions within the kidney.
 
-- **train.ipynb**: Jupyter notebook for training the segmentation model. Includes:
-  - **Data Loading**: Handles data loading for both 2D images and masks.
-  - **Training Procedure**: Model training using custom and standard loss functions to optimize for accurate kidney and tumor segmentation.
+- **train.ipynb**: Model training notebook that includes:
+  - **Data Loading**: Loads 2D slices and corresponding masks.
+  - **Training Procedure**: Implements custom and standard loss functions to optimize kidney and tumor segmentation accuracy.
 
-- **test.ipynb**: Jupyter notebook for evaluating the model's performance. This includes:
-  - **Testing**: Loading test data and evaluating the trained model on kidney and tumor segmentation.
-  - **Results Visualization**: Visual comparison between ground truth masks and model predictions for qualitative analysis.
+- **test.ipynb**: Evaluation notebook for:
+  - **Testing**: Runs the trained model on test data for kidney and tumor segmentation.
+  - **Results Visualization**: Provides visual comparisons of ground truth masks vs. predictions for qualitative analysis.
 
-- **source/**: Contains all necessary resources, modules, and helper scripts used across training, testing, and data preparation.
+- **source/**: Contains all helper modules and scripts for data preparation, training, and testing.
 
 ## Requirements
-
 - Python 3.x
 - PyTorch
-- Other dependencies: Listed in `requirements.txt`
+- Additional dependencies (listed in `requirements.txt`)
 
 ## Installation
 
@@ -32,53 +33,62 @@ This repository provides a deep learning approach for multiclass semantic segmen
    gh repo clone puja-urmi/Multiclass-Semantic-Segmentation-PyTorch
    ```
 
-2. Install the required packages:
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
 ## Dataset Preparation
 
-1. Download the KiTS19 dataset from the official source, https://github.com/neheller/kits19
-2. Place the dataset in the `data/` directory (or adjust paths in `slicer.ipynb` if necessary).
-3. Run `slicer.ipynb` to generate 2D images and masks of given 210 cases.
-4. Seperate data into train_data, val_data and test_data. 
+1. Download the [KiTS19 dataset](https://github.com/neheller/kits19) and place it in the `data/` directory (adjust paths in `slicer.ipynb` as needed).
+2. Run `slicer.ipynb` to generate 2D slices and masks for the 210 cases.
+3. Split the data as follows:
+   - Training data: 160 cases
+   - Validation data: 20 cases
+   - Test data: 30 cases
 
-## Training the Model
+## Model Training
 
-Open `train.ipynb` and follow the instructions to train the model on your dataset. Ensure you have sufficient GPU resources for faster training.
+Open `train.ipynb` and follow the instructions to train the model. For best results, run this notebook on a system with sufficient GPU resources.
 
 ## Testing and Evaluation
 
-To evaluate the model's performance, run `test.ipynb`. This notebook loads the trained model and applies it to the test set for kidney and tumor segmentation. Visualizations and performance metrics are included for easy interpretation.
+Run `test.ipynb` to evaluate the trained model on the test dataset. This notebook includes visualization of predictions alongside ground truth masks and provides performance metrics for quantitative analysis.
 
 ## Results
+
 - **Quantitative Results**:
-Kidney - Mean Dice: 91.0318
-Kidney - Mean Jaccard: 85.7883
-Kidney - Mean Sensitivity: 90.3453
-Kidney - Mean Precision: 94.9790
-Tumor - Mean Dice: 62.8176
-Tumor - Mean Jaccard: 53.1504
-Tumor - Mean Sensitivity: 66.7713
-Tumor - Mean Precision: 80.7901
-Composite Dice (Kidney & Tumor): 76.9247
-Composite Jaccard (Kidney & Tumor): 69.4693
-Composite Sensitivity (Kidney & Tumor): 78.5583
-Composite Precision (Kidney & Tumor): 87.8845
+  - Kidney:
+    - Dice: 91.03%
+    - Jaccard: 85.79%
+    - Sensitivity: 90.35%
+    - Precision: 94.98%
+  - Tumor:
+    - Dice: 62.82%
+    - Jaccard: 53.15%
+    - Sensitivity: 66.77%
+    - Precision: 80.79%
+  - Combined (Kidney & Tumor):
+    - Dice: 76.92%
+    - Jaccard: 69.47%
+    - Sensitivity: 78.56%
+    - Precision: 87.88%
+
+- **Qualitative Results**: Sample predictions vs. ground truth masks.
+
+   ![Sample 1](https://github.com/user-attachments/assets/f05921c7-b79c-4cbc-bf08-bed0b4666dc8)
   
-- **Qualitative Results**: 
-
-![984](https://github.com/user-attachments/assets/f05921c7-b79c-4cbc-bf08-bed0b4666dc8)
-
-
-
+   ![Sample 2](https://github.com/user-attachments/assets/6fd3da74-1a88-49f9-85ca-99605e414aa7)
+  
+   ![Sample 3](https://github.com/user-attachments/assets/1fef1ddc-056a-4661-b0e8-764b18deb0aa)
+  
+   ![Sample 4](https://github.com/user-attachments/assets/8525f52f-00de-430a-b6e5-767cc1ffeb98)  
 
 ## Acknowledgments
 
-- KiTS19 Challenge for providing the dataset
-- PyTorch community for tools and resources
+- Thanks to the KiTS19 Challenge for dataset access.
+- PyTorch community for resources and support.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
