@@ -81,8 +81,9 @@ Run `test.ipynb` to evaluate the trained model on the test dataset. This noteboo
    ![Sample 2](https://github.com/user-attachments/assets/6fd3da74-1a88-49f9-85ca-99605e414aa7)
   
    ![Sample 3](https://github.com/user-attachments/assets/1fef1ddc-056a-4661-b0e8-764b18deb0aa)
+
+   ![1582](https://github.com/user-attachments/assets/fba8bb2b-1f0c-4498-9c7c-971a16fde40b)
   
-   ![Sample 4](https://github.com/user-attachments/assets/8525f52f-00de-430a-b6e5-767cc1ffeb98)  
 
 ## Acknowledgments
 
